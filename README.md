@@ -1,7 +1,7 @@
 # patch_match
 Matching patches of size 512x512px and stride 25px across orthorectified maps registered on various different seasons and times of days
 
-This repo has been tested with cuda11.3 and pytorch 1.12.0. 
+This repo has been tested with cuda11.3 and pytorch 1.12.0 with python 3.8.12 in a seperate conda env.
 
 # To train your own models:
 
