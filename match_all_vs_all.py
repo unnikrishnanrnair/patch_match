@@ -116,7 +116,7 @@ def main(drone_img_name, map_img_name, model_name):
     for x in range(24480):
         search_index = x
         retrieved_h, retrieved_w = np.unravel_index(distances[search_index].argmin(), distances[search_index].shape)
-        search_h, search_w = (search_index)//203, (search_index)%119
+        search_h, search_w = (search_index)//204, (search_index)%204
         if (abs(search_h-retrieved_h)+abs(search_w-retrieved_w)) < 20:
             pos+=1
     print(pos/24480)
