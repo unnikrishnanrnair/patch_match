@@ -112,6 +112,15 @@ def main(drone_img_name, map_img_name, model_name):
     for i in range(len(distances)):
         plt.imsave('results/'+drone_img_name+'_vs_'+map_img_name+'_with_'+model_name+'/'+str(i)+'_heatmap.png', 1.-normalize(distances[i]), cmap='hot', format='png')
 
+    pos=0
+    for x in range(24480):
+        search_index = x
+        retrieved_h, retrieved_w = np.unravel_index(distances[search_index].argmin(), distances[search_index].shape)
+        search_h, search_w = (search_index)//203, (search_index)%119
+        if (abs(search_h-retrieved_h)+abs(search_w-retrieved_w)) < 20:
+            pos+=1
+    print(pos/24480)
+
 if __name__ == "__main__":
     drone_image_name = ['UAV_am', 'UAV_noon', 'UAV_pm']
     map_image_name = ['Bing', 'ESRI', 'Yandex']
